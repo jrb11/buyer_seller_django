@@ -172,7 +172,7 @@ def product_view(request):
     print('Session Get Data------ ',Email)
     login_user_obj = User_Details.objects.filter(Email_ID=Email).first()
     print('login_user_obj--------',login_user_obj)
-    product_obj = Product.objects.filter(Created_By_User_id=login_user_obj.User_Role_id).first()
+    product_obj = Product.objects.filter(Created_By_User_id=login_user_obj.Users_Role_id).first()
     print('product_obj-----------',product_obj)
     
     print("------------------------ Product Details View ----------------------",product_data)
