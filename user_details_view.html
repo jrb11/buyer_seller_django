@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+  <title>Blog Data</title>
+  <style>
+      
+    /* Create two equal columns that floats next to each other */
+    .column {
+      float: left;
+      width: 50%;
+      padding: 10px;
+      height: 80px; /* Should be removed. Only for demonstration */
+    }
+
+    .nav-item-text-white{
+      float: right;
+    }
+   
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">My Blog </a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://127.0.0.1:8000/">Home</a></li>
+        
+       
+
+        
+      </ul>
+    </div>
+  </nav>
+
+  
+<div class="container">
+  
+    {% comment %} <div class="row">
+        <div class="column"><h2>User Data </h2></div>
+        <div class="column"><h4 align="right">
+          <form action="" method="post">
+          <a href="http://127.0.0.1:8000/blog" align="center"><img src="/static/add.png" align="center"  alt="Add Blog" style="width:50px;height:50px;"></a> </h4></div>
+          </form
+        </div>    {% endcomment %}
+  <!-- <h2>Educator-Course Data </h2> -->
+ 
+  
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>User_ID</th>
+            <th>First_Name</th>
+            <th>Last_Name</th>
+            {% comment %} <th>Date_of_Birth</th> {% endcomment %}
+            <th>Email_ID</th>
+            {% comment %} <th>Mobile_No</th> {% endcomment %}
+            <th>Password</th>
+            {% comment %} <th>Address</th> {% endcomment %}
+            <th>Users_Role</th>    
+        </tr>
+    </thead>
+    
+    
+    {% if user_data %}
+    <tbody>
+        {% for i in user_data %}
+       
+        <tr>
+            <td>{{i.User_ID}}</td>
+            <td>{{i.First_Name}}</td>
+            <td>{{i.Last_Name}}</td>
+            {% comment %} <td>{{i.Date_of_Birth}}</td> {% endcomment %}
+            <td>{{i.Email_ID}}</td>
+            {% comment %} <td>{{i.Mobile_No}}</td> {% endcomment %}
+            <td>{{i.Password}}</td>
+            {% comment %} <td>{{i.Address}}</td> {% endcomment %}
+            <td>{{i.Users_Role}}</td>
+        </tr>
+
+       {% endfor %}
+    </tbody>
+    {% endif %}
+</table>
+
+</div>
+
+</body>
+</html>

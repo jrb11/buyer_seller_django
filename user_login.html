@@ -1,0 +1,68 @@
+{% include 'navbar.html' %}
+{% block content %}
+{% endblock content %}
+  
+    <style>
+  
+      .main{
+        text-align: center;
+        min-width: 50px;
+        position: align:center;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      input {
+        border: 1px solid #000
+        width: 200px;
+        padding: 20px;
+        font-size: 20px;
+     }
+     ::placeholder{
+      color:blue;
+     }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="/static/signin.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+ <center>
+  <main class="form-signin" >
+    <form method="post" action=" ">
+    {% csrf_token %}
+    <h1 class="h3 mb-3 fw-normal">User Login</h1>
+    <br>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" name="Email_ID" id="floatingInput" placeholder="Enter Email ID">
+     
+    </div>
+    <br>
+    <div class="form-floating">
+      <input type="password" class="form-control" name="Password" id="floatingPassword" placeholder="Enter Password">
+     
+    </div>
+  <br>
+
+    <button class="btn btn-lg btn-primary" type="submit">Login</button>
+    <br>
+    <div class="checkbox mb-3">
+      <label>
+        <p>Not a User? <a href="http://127.0.0.1:8000/user_details_registration/">Register</a></p>
+      </label>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <p>&copy; 2021–2022</p> 
+      </label>
+    </div>
+
+    
+   </form>
+ </main>
+ {% include 'messages.html' %}
+</center>
+</body>
