@@ -101,7 +101,7 @@ def user_login(request):
 
             if seller_obj.Role_Name == 'Seller':
                 print("--------------------------- Your are Seller ------------------------")
-                return redirect('product_registration')
+                return redirect('product_view')
 
             else:
                 print("--------------------------- Your are Not Seller --------------------")
@@ -165,18 +165,18 @@ def product_view(request):
 
     print("----- In User View ------")
     product_data = Product.objects.all().order_by('Created_By_User')
-    product_data_user = Product.objects.filter(First_Name=request.Created_By_User)
-    print(product_data_user)
+    #product_data_user = Product.objects.filter(First_Name=request.Created_By_User)
+    #print(product_data_user)
 
     Email = request.session.get('email')
-    print('Session Get Data------ ',Email)
+    print('Session Get Data------',Email)
     login_user_obj = User_Details.objects.filter(Email_ID=Email).first()
     print('login_user_obj--------',login_user_obj)
-    product_obj = Product.objects.filter(Created_By_User_id=login_user_obj.Users_Role_id).first()
-    print('product_obj-----------',product_obj)
+    user_product_obj = Product.objects.filter(Created_By_User_id=login_user_obj.User_ID)
+    print('product_obj-----------',user_product_obj)
     
-    print("------------------------ Product Details View ----------------------",product_data)
-    return render(request,'product_view.html',{'product_data':product_data})
+    print("------------------------ Product Details View ----------------------",user_product_obj)
+    return render(request,'product_view.html',{'product_data':user_product_obj})
 
 
 
